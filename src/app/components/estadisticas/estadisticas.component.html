@@ -1,0 +1,66 @@
+<section class="hero-section">
+  <div class="hero-background"></div>
+
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-lg-12">
+        <div class="hero-content animate-fadeIn text-center">
+          <h1 class="title-gaming mb-4">
+            The Best Game
+          </h1>
+          <div class="row g-4 justify-content-center">
+            @if (juegospopulares$ | async; as juegos) {
+              @for (juego of juegos; track juego.id) {
+                <div class="col-lg-4 col-md-6">
+                  <app-tarjeta-juego [juego]="juego"></app-tarjeta-juego>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row g-4 text-center">
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-bg-dark shadow-sm h-100">
+            <div class="card-body">
+              <h5 style="background-color: darkgray;" class="card-title">N° Total de Juegos</h5>
+              <p class="card-text display-6">{{ Totaldejuegos }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-bg-success shadow-sm h-100">
+            <div class="card-body">
+              <h5 style="background-color: darkgray;" class="card-title">N° Juegos Gratuitos</h5>
+              <p class="card-text display-6">{{ Juegosgratis }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-bg-primary shadow-sm h-100">
+            <div class="card-body">
+              <h5 style="background-color: darkgray;" class="card-title"> N°Juegos de Pago</h5>
+              <p class="card-text display-6">{{ Juegospago }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card text-bg-warning shadow-sm h-100">
+            <div class="card-body">
+              <h5 style="background-color: darkgray;" class="card-title">Precios Promedio</h5>
+              <p class="card-text display-6">{{ promedio | currency:'$' }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
